@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { LaunchpadTile } from "@/components/ui/launchpad-tile";
 import { useAwardsStore } from "@/store/awards";
-import { Settings, Users, Award } from "lucide-react";
+import { Settings, Users, Award, Trophy, Star, Target } from "lucide-react";
 
 export default function LaunchpadPage() {
   const navigate = useNavigate();
@@ -17,86 +17,116 @@ export default function LaunchpadPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-primary-light via-background to-accent/20">
       {/* Header */}
-      <header className="bg-card border-b">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10">
-              <Award className="h-6 w-6 text-primary" />
+      <header className="bg-card/95 backdrop-blur border-b border-border/50 shadow-sm">
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex items-center gap-4">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-primary-hover shadow-lg">
+              <Award className="h-8 w-8 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-semibold text-foreground">SAP Award and Excellence Hub</h1>
-              <p className="text-sm text-muted-foreground">Corporate Recognition Platform</p>
+              <h1 className="text-2xl font-bold text-foreground bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">
+                SAP Award and Excellence Hub
+              </h1>
+              <p className="text-sm text-muted-foreground font-medium">
+                Corporate Recognition Platform
+              </p>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-6 py-12">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Welcome to the Award and Excellence Hub
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Recognize outstanding achievements and foster a culture of excellence. 
-              Choose your role to get started with the awards management system.
-            </p>
-          </div>
-
-          {/* Role Selection Tiles */}
-          <div className="grid gap-8 md:grid-cols-2 max-w-2xl mx-auto">
-            <LaunchpadTile
-              title="Administrator"
-              subtitle="Manage award categories, review nominations, and configure system settings"
-              icon={Settings}
-              onClick={() => handleRoleSelection('admin')}
-            />
-            
-            <LaunchpadTile
-              title="Manager"
-              subtitle="Nominate outstanding employees for recognition and track nomination status"
-              icon={Users}
-              onClick={() => handleRoleSelection('manager')}
-            />
-          </div>
-
-          {/* Features Overview */}
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
-            <div className="text-center p-6">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Award className="h-6 w-6 text-primary" />
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="container mx-auto px-6 py-16">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Trophy className="h-4 w-4" />
+                Excellence Recognition Platform
               </div>
-              <h3 className="font-semibold mb-2">Award Management</h3>
-              <p className="text-sm text-muted-foreground">
-                Create and manage multiple award categories with custom criteria
+              <h2 className="text-5xl font-bold text-foreground mb-6 leading-tight">
+                Celebrate Excellence,
+                <br />
+                <span className="bg-gradient-to-r from-primary via-primary-hover to-accent-foreground bg-clip-text text-transparent">
+                  Drive Performance
+                </span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Recognize outstanding achievements and foster a culture of excellence with our 
+                comprehensive awards management system designed for modern organizations.
               </p>
             </div>
-            
-            <div className="text-center p-6">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Users className="h-6 w-6 text-primary" />
+
+            {/* Role Selection Cards */}
+            <div className="grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto mb-20">
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-hover/20 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+                <LaunchpadTile
+                  title="Administrator"
+                  subtitle="Manage award categories, review nominations, and configure system settings with comprehensive administrative controls"
+                  icon={Settings}
+                  onClick={() => handleRoleSelection('admin')}
+                  className="relative h-full p-8 bg-card/90 backdrop-blur border-2 hover:border-primary/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                />
               </div>
-              <h3 className="font-semibold mb-2">Easy Nominations</h3>
-              <p className="text-sm text-muted-foreground">
-                Streamlined nomination process with document upload support
-              </p>
+              
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-hover/20 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+                <LaunchpadTile
+                  title="Manager"
+                  subtitle="Nominate outstanding employees for recognition and track nomination status with real-time updates"
+                  icon={Users}
+                  onClick={() => handleRoleSelection('manager')}
+                  className="relative h-full p-8 bg-card/90 backdrop-blur border-2 hover:border-primary/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                />
+              </div>
             </div>
-            
-            <div className="text-center p-6">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Settings className="h-6 w-6 text-primary" />
+
+            {/* Features Grid */}
+            <div className="grid gap-8 md:grid-cols-3 mb-16">
+              <div className="group text-center p-8 rounded-2xl bg-card/60 backdrop-blur border border-border/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Trophy className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="font-bold text-lg mb-3 text-foreground">Award Management</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Create and manage multiple award categories with custom criteria and flexible configurations
+                </p>
               </div>
-              <h3 className="font-semibold mb-2">Role-Based Access</h3>
-              <p className="text-sm text-muted-foreground">
-                Secure access control with administrator and manager roles
-              </p>
+              
+              <div className="group text-center p-8 rounded-2xl bg-card/60 backdrop-blur border border-border/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Star className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="font-bold text-lg mb-3 text-foreground">Easy Nominations</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Streamlined nomination process with document upload support and intuitive workflows
+                </p>
+              </div>
+              
+              <div className="group text-center p-8 rounded-2xl bg-card/60 backdrop-blur border border-border/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Target className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="font-bold text-lg mb-3 text-foreground">Role-Based Access</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Secure access control with administrator and manager roles and permission management
+                </p>
+              </div>
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                Choose your role above to get started
+              </div>
             </div>
           </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }
