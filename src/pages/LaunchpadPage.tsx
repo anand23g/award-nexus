@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { LaunchpadTile } from "@/components/ui/launchpad-tile";
 import { useAwardsStore } from "@/store/awards";
-import { Settings, Users, Award, Trophy, Star, Target, Home, Calendar, BarChart3, Search, Bell, User, Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Settings, Users, Award, Trophy, Star, Target } from "lucide-react";
 
 export default function LaunchpadPage() {
   const navigate = useNavigate();
@@ -19,222 +17,116 @@ export default function LaunchpadPage() {
   };
 
   return (
-    <div className="min-h-screen bg-muted/30 flex">
-      {/* Left Sidebar Navigation */}
-      <aside className="w-64 bg-card border-r border-border flex flex-col">
-        {/* Sidebar Header */}
-        <div className="p-4 border-b border-border">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary">
-              <Award className="h-5 w-5 text-white" />
+    <div className="min-h-screen bg-gradient-to-br from-primary-light via-background to-accent/20">
+      {/* Header */}
+      <header className="bg-card/95 backdrop-blur border-b border-border/50 shadow-sm">
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex items-center gap-4">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-primary-hover shadow-lg">
+              <Award className="h-8 w-8 text-white" />
             </div>
             <div>
-              <h2 className="font-semibold text-sm text-foreground">SAP for Me</h2>
+              <h1 className="text-2xl font-bold text-foreground bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">
+                SAP Award and Excellence Hub
+              </h1>
+              <p className="text-sm text-muted-foreground font-medium">
+                Corporate Recognition Platform
+              </p>
             </div>
           </div>
         </div>
+      </header>
 
-        {/* Navigation Menu */}
-        <nav className="flex-1 p-4">
-          <ul className="space-y-2">
-            <li>
-              <a href="#" className="flex items-center gap-3 px-3 py-2 rounded-md bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-                <Home className="h-4 w-4" />
-                <span className="text-sm font-medium">Home</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
-                <Calendar className="h-4 w-4" />
-                <span className="text-sm">Calendar</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
-                <BarChart3 className="h-4 w-4" />
-                <span className="text-sm">Reporting</span>
-              </a>
-            </li>
-          </ul>
-
-          <div className="mt-8">
-            <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">
-              Dashboards
-            </h3>
-            <ul className="space-y-1">
-              <li>
-                <a href="#" className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
-                  <Award className="h-4 w-4" />
-                  <span className="text-sm">Awards & Recognition</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
-                  <Users className="h-4 w-4" />
-                  <span className="text-sm">Employee Management</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="flex items-center gap-3 px-3 py-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
-                  <Settings className="h-4 w-4" />
-                  <span className="text-sm">System Configuration</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </aside>
-
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col">
-        {/* Top Header */}
-        <header className="bg-card border-b border-border p-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm">
-                <Menu className="h-4 w-4" />
-              </Button>
-              <div className="flex items-center gap-3">
-                <div className="p-1 rounded bg-primary">
-                  <Award className="h-4 w-4 text-white" />
-                </div>
-                <span className="font-semibold text-foreground">SAP Award and Excellence Hub</span>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="container mx-auto px-6 py-16">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Trophy className="h-4 w-4" />
+                Excellence Recognition Platform
               </div>
+              <h2 className="text-5xl font-bold text-foreground mb-6 leading-tight">
+                Celebrate Excellence,
+                <br />
+                <span className="bg-gradient-to-r from-primary via-primary-hover to-accent-foreground bg-clip-text text-transparent">
+                  Drive Performance
+                </span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Recognize outstanding achievements and foster a culture of excellence with our 
+                comprehensive awards management system designed for modern organizations.
+              </p>
             </div>
-            
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input 
-                  placeholder="Search" 
-                  className="pl-10 w-80 bg-muted/50"
+
+            {/* Role Selection Cards */}
+            <div className="grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto mb-20">
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-hover/20 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+                <LaunchpadTile
+                  title="Administrator"
+                  subtitle="Manage award categories, review nominations, and configure system settings with comprehensive administrative controls"
+                  icon={Settings}
+                  onClick={() => handleRoleSelection('admin')}
+                  className="relative h-full p-8 bg-card/90 backdrop-blur border-2 hover:border-primary/50 shadow-lg hover:shadow-xl transition-all duration-300"
                 />
               </div>
-              <Button variant="ghost" size="sm">
-                <Bell className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="sm">
-                <User className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <main className="flex-1 p-6">
-          <div className="mb-6">
-            <h1 className="text-2xl font-bold text-foreground mb-1">Welcome Anand,</h1>
-            <Button variant="link" className="p-0 h-auto text-primary">
-              <Settings className="h-4 w-4 mr-1" />
-              Customize Home Page
-            </Button>
-          </div>
-
-          {/* Hero Banner */}
-          <div className="relative mb-8 rounded-xl overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 min-h-[300px] flex items-center justify-center">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-hover/20"></div>
-            <div className="relative z-10 text-center text-white p-8">
-              <h2 className="text-4xl font-bold mb-4">Welcome to SAP Award and Excellence Hub</h2>
-              <p className="text-lg mb-6 opacity-90">
-                Remember that you can always edit your interests to personalize your homepage.<br />
-                Try it out, and as always we welcome your feedback.
-              </p>
-              <div className="flex gap-3 justify-center">
-                <Button variant="default" className="bg-primary hover:bg-primary-hover">
-                  Edit My Interests
-                </Button>
-                <Button variant="outline" className="text-white border-white hover:bg-white hover:text-foreground">
-                  Close
-                </Button>
+              
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-hover/20 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+                <LaunchpadTile
+                  title="Manager"
+                  subtitle="Nominate outstanding employees for recognition and track nomination status with real-time updates"
+                  icon={Users}
+                  onClick={() => handleRoleSelection('manager')}
+                  className="relative h-full p-8 bg-card/90 backdrop-blur border-2 hover:border-primary/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                />
               </div>
             </div>
-          </div>
 
-          {/* Search Support Knowledge */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4">Search Support Knowledge</h3>
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input 
-                placeholder="How can we help you?" 
-                className="pl-10 bg-card"
-              />
-            </div>
-          </div>
-
-          {/* Content Grid */}
-          <div className="grid gap-6 lg:grid-cols-3">
-            {/* Main Launchpad Tile */}
-            <div className="lg:col-span-1">
-              <div className="bg-card rounded-lg border p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded bg-primary/10">
-                    <Award className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Enter the SAP Award and Excellence Hub</h3>
-                  </div>
+            {/* Features Grid */}
+            <div className="grid gap-8 md:grid-cols-3 mb-16">
+              <div className="group text-center p-8 rounded-2xl bg-card/60 backdrop-blur border border-border/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Trophy className="h-8 w-8 text-primary" />
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  SAP employees can access the award management system and its applications.
+                <h3 className="font-bold text-lg mb-3 text-foreground">Award Management</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Create and manage multiple award categories with custom criteria and flexible configurations
                 </p>
-                <div className="space-y-2">
-                  <Button 
-                    onClick={() => handleRoleSelection('admin')} 
-                    className="w-full justify-start" 
-                    variant="ghost"
-                  >
-                    <Settings className="h-4 w-4 mr-2" />
-                    Administrator Dashboard
-                  </Button>
-                  <Button 
-                    onClick={() => handleRoleSelection('manager')} 
-                    className="w-full justify-start" 
-                    variant="ghost"
-                  >
-                    <Users className="h-4 w-4 mr-2" />
-                    Manager Portal
-                  </Button>
+              </div>
+              
+              <div className="group text-center p-8 rounded-2xl bg-card/60 backdrop-blur border border-border/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Star className="h-8 w-8 text-primary" />
                 </div>
+                <h3 className="font-bold text-lg mb-3 text-foreground">Easy Nominations</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Streamlined nomination process with document upload support and intuitive workflows
+                </p>
+              </div>
+              
+              <div className="group text-center p-8 rounded-2xl bg-card/60 backdrop-blur border border-border/50 hover:bg-card/80 transition-all duration-300 hover:shadow-lg">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Target className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="font-bold text-lg mb-3 text-foreground">Role-Based Access</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Secure access control with administrator and manager roles and permission management
+                </p>
               </div>
             </div>
 
-            {/* Get Started Section */}
-            <div className="lg:col-span-2">
-              <div className="bg-card rounded-lg border p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold">Get Started</h3>
-                  <Button variant="ghost" size="sm">
-                    <Menu className="h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="space-y-3">
-                  <a href="#" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                    <Trophy className="h-5 w-5 text-primary" />
-                    <span className="text-sm">What is SAP Award and Excellence Hub?</span>
-                  </a>
-                  <a href="#" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                    <Star className="h-5 w-5 text-primary" />
-                    <span className="text-sm">Manage award categories and nominations</span>
-                  </a>
-                  <a href="#" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                    <Settings className="h-5 w-5 text-primary" />
-                    <span className="text-sm">Award and Excellence Hub authorizations</span>
-                  </a>
-                  <a href="#" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                    <Users className="h-5 w-5 text-primary" />
-                    <span className="text-sm">Get started with Employee Recognition</span>
-                  </a>
-                  <a href="#" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
-                    <Target className="h-5 w-5 text-primary" />
-                    <span className="text-sm">Get the App</span>
-                  </a>
-                </div>
+            {/* Call to Action */}
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                Choose your role above to get started
               </div>
             </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
